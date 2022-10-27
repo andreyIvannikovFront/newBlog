@@ -1,0 +1,30 @@
+<form action="" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Создание нового поста</h1>
+    <div class="form-control">
+        <label for="title">Title</label>
+        <input id="title" type="text" formControlName="title" />
+<!--        <div class="validation" *ngIf="_getEmail.touched  && _getEmail.invalid">-->
+<!--            <small *ngIf="_getEmail.errors.email">Не корректный Email</small>-->
+<!--            <small *ngIf="_getEmail.errors.required">Необходимо больше символов</small>-->
+<!--        </div>-->
+    </div>
+    <div class="form-control">
+        <label>Контент поста</label>
+        <quill-editor formControlName="content"></quill-editor>
+    </div>
+    <div class="form-control">
+        <label for="author">Author</label>
+        <input id="author" type="text" formControlName="author" />
+        <!--        <div class="validation" *ngIf="_getEmail.touched  && _getEmail.invalid">-->
+        <!--            <small *ngIf="_getEmail.errors.email">Не корректный Email</small>-->
+        <!--            <small *ngIf="_getEmail.errors.required">Необходимо больше символов</small>-->
+        <!--        </div>-->
+    </div>
+    <button
+        type="submit"
+        class="btn btn-block btn-danger"
+        [disabled]="form.invalid || submitting"
+    >
+        Создать пост
+    </button>
+</form>

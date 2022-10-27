@@ -1,0 +1,29 @@
+<div class="form">
+  <form *ngIf="form; else loading" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-control">
+      <label>
+        Title
+        <input formControlName="title" type="text" />
+      </label>
+    </div>
+    <div class="form-control">
+     <quill-editor formControlName="text"></quill-editor>
+    </div>
+    <div class="form-control">
+      <label>
+        Name
+        <input type="text" formControlName="author" />
+      </label>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-block btn-danger"
+      [disabled]="form.invalid"
+    >
+      Создать пост
+    </button>
+  </form>
+  <ng-template #loading>
+   <app-loading></app-loading>
+  </ng-template>
+</div>

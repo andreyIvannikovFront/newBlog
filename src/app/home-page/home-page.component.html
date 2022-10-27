@@ -1,0 +1,17 @@
+<div *ngIf="posts$ | async as post; else loading">
+  <app-post
+    *ngFor="let post of post"
+    [post]="post"
+  ></app-post>
+<!--  <app-tabs>-->
+<!--    <app-tab [label]="'first'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, sit!</app-tab>-->
+<!--    <app-tab [label]="'second'">Вызовите внутри анимации sequence(), group()или transition()вызовите, чтобы указать шаг анимации, который применяет заданные данные стиля к родительской анимации в течение заданного периода времени.</app-tab>-->
+<!--    <app-tab [label]="'third'">В следующем примере вызывается keyframes()задание для стиля CSS различных значений для последовательных ключевых кадров.</app-tab>-->
+<!--  </app-tabs>-->
+  <app-button>
+    <mat-icon class="material-icons">home</mat-icon>
+  </app-button>
+</div>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

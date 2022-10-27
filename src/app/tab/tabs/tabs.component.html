@@ -1,0 +1,6 @@
+<div class="tabs">
+  <ul class="tabs__list">
+    <li *ngFor="let tab of tabs" (click)="handleActiveTab(tab)">{{tab.label}}</li>
+  </ul>
+  <ng-content></ng-content>
+</div>

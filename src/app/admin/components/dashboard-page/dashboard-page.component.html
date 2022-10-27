@@ -1,0 +1,15 @@
+<div *ngIf="posts.length; else content">
+  <div class="form-control">
+    <input type="text" placeholder="Найти пост..." [(ngModel)]="searchPost">
+  </div>
+  <app-table
+    [posts]="posts"
+    (onRemove)="removePost($event)"
+    [searchPost]="searchPost"
+  >
+  </app-table>
+</div>
+
+<ng-template #content>
+  <app-loading></app-loading>
+</ng-template>

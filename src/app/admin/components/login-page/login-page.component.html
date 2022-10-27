@@ -1,0 +1,28 @@
+<form action="" class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="invalid" *ngIf="authService?.errorMessage$ | async as error">
+        {{error}}
+    </div>
+    <h2>Войти в панель администарции</h2>
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" />
+        <div class="validation" *ngIf="_getEmail?.['touched']  && _getEmail?.invalid">
+            <small *ngIf="_getEmail?.['errors']?.['email']">Не корректный Email</small>
+            <small *ngIf="_getEmail?.['errors']?.['required']">Необходимо больше символов</small>
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label for="password">password</label>
+        <input id="password" type="password" formControlName="password" />
+        <div class="validation" *ngIf="_getPassword?.['touched'] && _getPassword?.['invalid']">
+            <small *ngIf="_getPassword?.['errors']?.['minlength']">
+                Необходимое количество символов {{_getPassword?.errors?.['minlength']?.['requiredLength']}}
+            </small>
+            <small *ngIf="_getPassword?.['errors']?.['required']">
+                Обязательно поле
+            </small>
+        </div>
+    </div>
+    <button [disabled]="form?.invalid" type="submit" class="btn btn-primary">Войти</button>
+</form>
