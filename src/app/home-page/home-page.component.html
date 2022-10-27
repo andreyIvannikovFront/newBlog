@@ -3,10 +3,11 @@
     *ngFor="let post of post"
     [post]="post"
   ></app-post>
-  <app-button class="add">
+  <app-button>
     <mat-icon class="material-icons">home</mat-icon>
   </app-button>
 </div>
 <ng-template #loading>
+  <span>2</span>
   <app-loading></app-loading>
 </ng-template>
